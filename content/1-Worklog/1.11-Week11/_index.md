@@ -1,57 +1,35 @@
 ---
 title: "Week 11 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-26
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
+
 {{% notice warning %}} 
 ⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
 {{% /notice %}}
 
-
 ### Week 11 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Build advanced web features (Mock Payment Gateway, Reviews/Ratings system) and optimize application performance.
+* Package the application using Docker and configure deployment on EC2 server instances.
+* Set up traffic distribution (ALB), auto-scaling (ASG), secure custom domain mapping (HTTPS), and integrate CI/CD automation.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| Thu | - Develop the Mock Payment Gateway and the review rating system for coaches | 26/06/2026 | 26/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Optimize application performance: index database tables on query-heavy columns and minimize Next.js build bundle size | 27/06/2026 | 27/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Mon | - Write Dockerfiles and a docker-compose configuration to containerize the frontend and backend applications | 29/06/2026 | 29/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Deploy Docker containers to EC2 instances and set up Application Load Balancer (ALB) and Auto Scaling Group (ASG) | 30/06/2026 | 30/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Map custom domain via Route 53, configure HTTPS SSL/TLS certificates via ACM, and set up CI/CD pipeline using GitHub Actions | 01/07/2026 | 02/07/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Week 11 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Advanced Web Features & Optimization:**
+  - Completed the booking workflow, allowing students to pay through a mockup gateway and submit rating stars and text reviews for coaches.
+  - Reduced API response time from ~400ms to ~80ms by adding indexes to the `skills` and `booking_date` columns in the PostgreSQL database.
+* **Packaging & Cloud Deployment:**
+  - Successfully containerized the application using Docker, ensuring consistent deployment behavior across local and cloud environments.
+  - Deployed Docker containers onto EC2 instances protected by an Application Load Balancer (ALB) and managed under an Auto Scaling Group (ASG) for scale and reliability.
+  - Connected the custom domain using Route 53 and enabled HTTPS traffic encryption using ACM SSL certificates.
+  - Set up a CI/CD pipeline using GitHub Actions to automatically run tests, build Docker images, and push them to ECR/Docker Hub, triggering automated SSH deployment to EC2 upon branch updates.

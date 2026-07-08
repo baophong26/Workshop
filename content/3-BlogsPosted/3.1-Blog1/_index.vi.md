@@ -1,31 +1,54 @@
 ---
-title: "Blog 1"
+title: "Blog 1 - AWS Systems Manager"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+# AWS SYSTEMS MANAGER – GIẢI PHÁP QUẢN LÝ TẬP TRUNG CHO MÔI TRƯỜNG HYBRID CLOUD
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Khi doanh nghiệp vận hành đồng thời hạ tầng trên AWS và hệ thống On-Premises, việc quản lý máy chủ thường trở nên phức tạp do phải sử dụng nhiều công cụ khác nhau, mở các cổng SSH hoặc RDP để truy cập từ xa và thực hiện nhiều tác vụ vận hành thủ công.
 
-Các điểm chính cần nắm:
+Để giải quyết vấn đề này, AWS cung cấp **AWS Systems Manager (SSM)** – một dịch vụ giúp quản lý tập trung các tài nguyên trên AWS cũng như các máy chủ nằm ngoài AWS từ một nền tảng duy nhất.
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+## KIẾN TRÚC TỔNG QUAN
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+Trong kiến trúc này, AWS Systems Manager đóng vai trò là trung tâm điều phối. Quản trị viên có thể sử dụng AWS Console, AWS CLI, SDK hoặc PowerShell để quản lý các EC2 Windows, Linux, macOS cũng như các máy chủ vật lý hoặc máy ảo trong môi trường On-Premises.
 
-...Hình ảnh...
+![Kiến trúc AWS Systems Manager](/images/blog1.jpg)
 
-...Link...
+## SESSION MANAGER – TRUY CẬP MÁY CHỦ AN TOÀN
 
-...Hướng dẫn...
+Một trong những tính năng nổi bật nhất của AWS Systems Manager là **Session Manager**. Thay vì phải mở cổng SSH hoặc RDP để truy cập máy chủ, người dùng có thể kết nối trực tiếp thông qua AWS Console hoặc AWS CLI mà không cần mở bất kỳ cổng inbound nào trên hệ thống.
+
+Giải pháp này mang lại nhiều lợi ích:
+
+* **Tăng cường bảo mật** - Không cần mở cổng SSH/RDP ra Internet
+* **Không cần Bastion Host** - Tiết kiệm chi phí và giảm độ phức tạp
+* **Không cần quản lý SSH Key** - Đơn giản hóa quản lý access
+* **Ghi lại lịch sử truy cập** - Audit trail đầy đủ với CloudTrail
+* **Giảm rủi ro bị tấn công từ Internet** - Không expose cổng quản trị
+
+## PATCH MANAGER – TỰ ĐỘNG HÓA CẬP NHẬT HỆ THỐNG
+
+Ngoài Session Manager, AWS Systems Manager còn cung cấp **Patch Manager** giúp tự động hóa quá trình cập nhật hệ điều hành.
+
+Dịch vụ hỗ trợ:
+
+* Quét các bản vá còn thiếu
+* Cập nhật hệ thống tự động
+* Lập lịch bảo trì định kỳ
+* Theo dõi trạng thái cập nhật
+
+## TRẢI NGHIỆM THỰC TẾ
+
+Trong quá trình học tập, mình đã có cơ hội triển khai AWS Systems Manager trên Windows EC2, thực hiện cấu hình SSM Agent, gán IAM Role, kết nối bằng Session Manager và thiết lập Port Forwarding để truy cập Remote Desktop.
+
+Qua quá trình thực hành, mình nhận thấy đây là một giải pháp rất hữu ích giúp đơn giản hóa việc quản trị máy chủ đồng thời nâng cao tính bảo mật cho hệ thống.
+
+## KẾT LUẬN
+
+AWS Systems Manager là một dịch vụ mạnh mẽ giúp doanh nghiệp quản lý môi trường Hybrid Cloud một cách tập trung, an toàn và hiệu quả. Với các tính năng như Session Manager, Patch Manager cùng khả năng tích hợp với CloudWatch, CloudTrail và Amazon S3, đây là một trong những dịch vụ đáng chú ý khi triển khai hạ tầng trên AWS.
+
+**Link bài viết gốc:** [Using AWS Systems Manager in Hybrid Cloud Environments](https://aws.amazon.com/blogs/architecture/using-aws-systems-manager-in-hybrid-cloud-environments/)

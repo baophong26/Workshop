@@ -1,31 +1,54 @@
 ---
-title: "Blog 1"
+title: "Blog 1 - AWS Systems Manager"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# SESSION POLICIES IN AMAZON EKS POD IDENTITY
+# AWS SYSTEMS MANAGER – CENTRALIZED MANAGEMENT SOLUTION FOR HYBRID CLOUD ENVIRONMENTS
 
-Amazon EKS Pod Identity has recently added the session policies feature, allowing you to narrow IAM permissions flexibly and precisely for each pod without needing to create many separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+When businesses operate infrastructure simultaneously on AWS and On-Premises systems, server management often becomes complex due to the need to use multiple different tools, open SSH or RDP ports for remote access, and perform many manual operational tasks.
 
-Key points to know:
+To solve this problem, AWS provides **AWS Systems Manager (SSM)** – a service that helps centrally manage resources on AWS as well as servers outside AWS from a single platform.
 
-* A session policy is an inline IAM policy specified when creating or updating a Pod Identity association.
-* Effective permissions = intersection between the IAM role permissions and the session policy → the session policy can only narrow permissions, not expand them.
-* Helps avoid over-permissioning when reusing a single IAM role for multiple workloads with different needs.
-* Supports both same-account and cross-account (via IAM role chaining).
-* Significantly reduces the number of IAM roles that need to be managed, helping avoid hitting IAM quota limits in large clusters.
-* Easily configured through the AWS Management Console, AWS CLI, or AWS SDK when creating an association between a Kubernetes ServiceAccount and an IAM role.
+## OVERALL ARCHITECTURE
 
-This feature is especially useful when you have many applications running on the same IAM role but need different permission restrictions (for example: one pod only reads a specific S3 bucket, another pod only calls certain APIs).
+In this architecture, AWS Systems Manager acts as the central orchestrator. Administrators can use AWS Console, AWS CLI, SDK, or PowerShell to manage EC2 Windows, Linux, macOS as well as physical servers or virtual machines in On-Premises environments.
 
-...Image...
+![AWS Systems Manager Architecture](/images/blog1.jpg)
 
-...Link...
+## SESSION MANAGER – SECURE SERVER ACCESS
 
-...Guide...
+One of the most prominent features of AWS Systems Manager is **Session Manager**. Instead of having to open SSH or RDP ports to access servers, users can connect directly through AWS Console or AWS CLI without needing to open any inbound ports on the system.
+
+This solution brings many benefits:
+
+* **Enhanced security** - No need to open SSH/RDP ports to the Internet
+* **No Bastion Host needed** - Save costs and reduce complexity
+* **No SSH Key management** - Simplify access management
+* **Record access history** - Full audit trail with CloudTrail
+* **Reduce risk of Internet attacks** - Don't expose management ports
+
+## PATCH MANAGER – AUTOMATED SYSTEM UPDATES
+
+In addition to Session Manager, AWS Systems Manager also provides **Patch Manager** to automate the operating system update process.
+
+The service supports:
+
+* Scanning for missing patches
+* Automated system updates
+* Scheduled periodic maintenance
+* Update status monitoring
+
+## PRACTICAL EXPERIENCE
+
+During the learning process, I had the opportunity to deploy AWS Systems Manager on Windows EC2, perform SSM Agent configuration, assign IAM Role, connect using Session Manager, and set up Port Forwarding to access Remote Desktop.
+
+Through hands-on practice, I found this to be a very useful solution that simplifies server administration while enhancing system security.
+
+## CONCLUSION
+
+AWS Systems Manager is a powerful service that helps businesses manage Hybrid Cloud environments in a centralized, secure, and efficient manner. With features like Session Manager, Patch Manager, and the ability to integrate with CloudWatch, CloudTrail, and Amazon S3, this is one of the notable services when deploying infrastructure on AWS.
+
+**Original article link:** [Using AWS Systems Manager in Hybrid Cloud Environments](https://aws.amazon.com/blogs/architecture/using-aws-systems-manager-in-hybrid-cloud-environments/)

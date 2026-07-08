@@ -1,242 +1,97 @@
+﻿---
+title: "Prerequisites"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 5.2. </b> "
 ---
-title : "Prerequiste"
-date : 2024-01-01 
-weight : 2 
-chapter : false
-pre : " <b> 5.2. </b> "
----
 
-#### IAM permissions
-Add the following IAM permission policy to your user account to deploy and cleanup this workshop.
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:*",
-                "cloudwatch:*",
-                "ec2:AcceptTransitGatewayPeeringAttachment",
-                "ec2:AcceptTransitGatewayVpcAttachment",
-                "ec2:AllocateAddress",
-                "ec2:AssociateAddress",
-                "ec2:AssociateIamInstanceProfile",
-                "ec2:AssociateRouteTable",
-                "ec2:AssociateSubnetCidrBlock",
-                "ec2:AssociateTransitGatewayRouteTable",
-                "ec2:AssociateVpcCidrBlock",
-                "ec2:AttachInternetGateway",
-                "ec2:AttachNetworkInterface",
-                "ec2:AttachVolume",
-                "ec2:AttachVpnGateway",
-                "ec2:AuthorizeSecurityGroupEgress",
-                "ec2:AuthorizeSecurityGroupIngress",
-                "ec2:CreateClientVpnEndpoint",
-                "ec2:CreateClientVpnRoute",
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateLaunchTemplate",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkInterface",
-                "ec2:CreateNetworkInterfacePermission",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSecurityGroup",
-                "ec2:CreateSubnet",
-                "ec2:CreateSubnetCidrReservation",
-                "ec2:CreateTags",
-                "ec2:CreateTransitGateway",
-                "ec2:CreateTransitGatewayPeeringAttachment",
-                "ec2:CreateTransitGatewayPrefixListReference",
-                "ec2:CreateTransitGatewayRoute",
-                "ec2:CreateTransitGatewayRouteTable",
-                "ec2:CreateTransitGatewayVpcAttachment",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:DeleteCustomerGateway",
-                "ec2:DeleteFlowLogs",
-                "ec2:DeleteInternetGateway",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DeleteNetworkInterfacePermission",
-                "ec2:DeleteRoute",
-                "ec2:DeleteRouteTable",
-                "ec2:DeleteSecurityGroup",
-                "ec2:DeleteSubnet",
-                "ec2:DeleteSubnetCidrReservation",
-                "ec2:DeleteTags",
-                "ec2:DeleteTransitGateway",
-                "ec2:DeleteTransitGatewayPeeringAttachment",
-                "ec2:DeleteTransitGatewayPrefixListReference",
-                "ec2:DeleteTransitGatewayRoute",
-                "ec2:DeleteTransitGatewayRouteTable",
-                "ec2:DeleteTransitGatewayVpcAttachment",
-                "ec2:DeleteVpc",
-                "ec2:DeleteVpcEndpoints",
-                "ec2:DeleteVpcEndpointServiceConfigurations",
-                "ec2:DeleteVpnConnection",
-                "ec2:DeleteVpnConnectionRoute",
-                "ec2:Describe*",
-                "ec2:DetachInternetGateway",
-                "ec2:DisassociateAddress",
-                "ec2:DisassociateRouteTable",
-                "ec2:GetLaunchTemplateData",
-                "ec2:GetTransitGatewayAttachmentPropagations",
-                "ec2:ModifyInstanceAttribute",
-                "ec2:ModifySecurityGroupRules",
-                "ec2:ModifyTransitGatewayVpcAttachment",
-                "ec2:ModifyVpcAttribute",
-                "ec2:ModifyVpcEndpoint",
-                "ec2:ReleaseAddress",
-                "ec2:ReplaceRoute",
-                "ec2:RevokeSecurityGroupEgress",
-                "ec2:RevokeSecurityGroupIngress",
-                "ec2:RunInstances",
-                "ec2:StartInstances",
-                "ec2:StopInstances",
-                "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
-                "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
-                "iam:AddRoleToInstanceProfile",
-                "iam:AttachRolePolicy",
-                "iam:CreateInstanceProfile",
-                "iam:CreatePolicy",
-                "iam:CreateRole",
-                "iam:DeleteInstanceProfile",
-                "iam:DeletePolicy",
-                "iam:DeleteRole",
-                "iam:DeleteRolePolicy",
-                "iam:DetachRolePolicy",
-                "iam:GetInstanceProfile",
-                "iam:GetPolicy",
-                "iam:GetRole",
-                "iam:GetRolePolicy",
-                "iam:ListPolicyVersions",
-                "iam:ListRoles",
-                "iam:PassRole",
-                "iam:PutRolePolicy",
-                "iam:RemoveRoleFromInstanceProfile",
-                "lambda:CreateFunction",
-                "lambda:DeleteFunction",
-                "lambda:DeleteLayerVersion",
-                "lambda:GetFunction",
-                "lambda:GetLayerVersion",
-                "lambda:InvokeFunction",
-                "lambda:PublishLayerVersion",
-                "logs:CreateLogGroup",
-                "logs:DeleteLogGroup",
-                "logs:DescribeLogGroups",
-                "logs:PutRetentionPolicy",
-                "route53:ChangeTagsForResource",
-                "route53:CreateHealthCheck",
-                "route53:CreateHostedZone",
-                "route53:CreateTrafficPolicy",
-                "route53:DeleteHostedZone",
-                "route53:DisassociateVPCFromHostedZone",
-                "route53:GetHostedZone",
-                "route53:ListHostedZones",
-                "route53domains:ListDomains",
-                "route53domains:ListOperations",
-                "route53domains:ListTagsForDomain",
-                "route53resolver:AssociateResolverEndpointIpAddress",
-                "route53resolver:AssociateResolverRule",
-                "route53resolver:CreateResolverEndpoint",
-                "route53resolver:CreateResolverRule",
-                "route53resolver:DeleteResolverEndpoint",
-                "route53resolver:DeleteResolverRule",
-                "route53resolver:DisassociateResolverEndpointIpAddress",
-                "route53resolver:DisassociateResolverRule",
-                "route53resolver:GetResolverEndpoint",
-                "route53resolver:GetResolverRule",
-                "route53resolver:ListResolverEndpointIpAddresses",
-                "route53resolver:ListResolverEndpoints",
-                "route53resolver:ListResolverRuleAssociations",
-                "route53resolver:ListResolverRules",
-                "route53resolver:ListTagsForResource",
-                "route53resolver:UpdateResolverEndpoint",
-                "route53resolver:UpdateResolverRule",
-                "s3:AbortMultipartUpload",
-                "s3:CreateBucket",
-                "s3:DeleteBucket",
-                "s3:DeleteObject",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:GetBucketAcl",
-                "s3:GetBucketOwnershipControls",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketPolicyStatus",
-                "s3:GetBucketPublicAccessBlock",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:GetBucketVersioning",
-                "s3:ListAccessPoints",
-                "s3:ListAccessPointsForObjectLambda",
-                "s3:ListAllMyBuckets",
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads",
-                "s3:ListBucketVersions",
-                "s3:ListJobs",
-                "s3:ListMultipartUploadParts",
-                "s3:ListMultiRegionAccessPoints",
-                "s3:ListStorageLensConfigurations",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:PutBucketAcl",
-                "s3:PutBucketPolicy",
-                "s3:PutBucketPublicAccessBlock",
-                "s3:PutObject",
-                "secretsmanager:CreateSecret",
-                "secretsmanager:DeleteSecret",
-                "secretsmanager:DescribeSecret",
-                "secretsmanager:GetSecretValue",
-                "secretsmanager:ListSecrets",
-                "secretsmanager:ListSecretVersionIds",
-                "secretsmanager:PutResourcePolicy",
-                "secretsmanager:TagResource",
-                "secretsmanager:UpdateSecret",
-                "sns:ListTopics",
-                "ssm:DescribeInstanceProperties",
-                "ssm:DescribeSessions",
-                "ssm:GetConnectionStatus",
-                "ssm:GetParameters",
-                "ssm:ListAssociations",
-                "ssm:ResumeSession",
-                "ssm:StartSession",
-                "ssm:TerminateSession"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+#### Requirements before starting
 
-```
+To complete this workshop, you need:
 
-#### Provision resources using CloudFormation
+1. **AWS Account** with Administrator privileges or sufficient permissions to create the following services:
+   - IAM, S3, DynamoDB, Cognito, SQS, Lambda, API Gateway, WAF, CloudFront, Route 53, ACM, CloudWatch, SNS
 
-In this lab, we will use **N.Virginia region (us-east-1)**.
+2. **OpenAI API Key**: Register at [platform.openai.com](https://platform.openai.com/) to use Speech-to-Text and GPT evaluation
 
-To prepare the workshop environment, deploy this **CloudFormation Template** (click link): [PrivateLinkWorkshop ](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.us-east-1.amazonaws.com/reinvent-endpoints-builders-session/Nested.yaml&stackName=PLCloudSetup). Accept all of the defaults when deploying the template. 
+3. **Region**: This workshop uses **ap-southeast-1 (Singapore)** for most services
+   - **Important**: ACM SSL Certificate must be created in **us-east-1** for use with CloudFront
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack1.png)
+4. **Alert email**: To receive notifications from SNS
 
-+ Tick 2 acknowledgement boxes
-+ Choose **Create stack**
+5. **(Optional) Custom domain**: If you want to use a domain like `itcoach24h.xyz` instead of CloudFront's default domain
+   - Can purchase domain at Namecheap, GoDaddy, or Route 53 (~$2-3/year)
 
-![create stack](/images/5-Workshop/5.2-Prerequisite/create-stack2.png)
+#### Progress Checklist
 
-The **ClouddFormation** deployment requires about 15 minutes to complete.
+In this workshop, you will create the following resources:
 
-![complete](/images/5-Workshop/5.2-Prerequisite/complete.png)
+| # | Service | Details | Status |
+|---|---------|---------|--------|
+| 1 | IAM Role | `itcoach-lambda-role` | ⬜ |
+| 2 | S3 - Static Assets | `itcoach-static-assets` | ⬜ |
+| 3 | S3 - Audio Upload | `itcoach-audio-upload` | ⬜ |
+| 4 | DynamoDB | 8 tables | ⬜ |
+| 5 | Cognito | User Pool + App Client | ⬜ |
+| 6 | SQS | 2 queues (Main + DLQ) | ⬜ |
+| 7 | Lambda | 8 functions | ⬜ |
+| 8 | API Gateway | 8 endpoints + Throttling | ⬜ |
+| 9 | AWS WAF | 2 Web ACLs (CloudFront + API Gateway) | ⬜ |
+| 10 | CloudFront | Distribution + Error Pages | ⬜ |
+| 11 | Route 53 | DNS + Domain `itcoach24h.xyz` | ⬜ |
+| 12 | ACM | SSL Certificate | ⬜ |
+| 13 | SNS + CloudWatch | Monitoring + Alerts | ⬜ |
 
-+ **2 VPCs** have been created
+#### Important Information to Save
 
-![vpcs](/images/5-Workshop/5.2-Prerequisite/vpcs.png)
+During the workshop, you will need to save the following information for use in subsequent steps:
 
-+ **3 EC2s** have been created
+| Information | Created in Step | Used For |
+|-------------|----------------|----------|
+| **IAM Role ARN** | 5.3 - IAM Role | Lambda functions |
+| **S3 Static Bucket Name** | 5.4 - S3 Buckets | CloudFront origin |
+| **S3 Audio Bucket Name** | 5.4 - S3 Buckets | Lambda env vars |
+| **DynamoDB Table Names** | 5.5 - DynamoDB | Lambda env vars (8 tables) |
+| **Cognito User Pool ID** | 5.6 - Cognito | API Gateway authorizer |
+| **Cognito App Client ID** | 5.6 - Cognito | Frontend config |
+| **SQS Queue URL** | 5.7 - SQS | Lambda env vars |
+| **Lambda Function ARNs** | 5.8 - Lambda | API Gateway integration |
+| **API Gateway URL** | 5.9 - API Gateway | Frontend config |
+| **CloudFront Domain** | 5.10 - CloudFront | Cognito callback URL |
+| **ACM Certificate ARN** | 5.11 - Route 53 | CloudFront SSL |
+| **Route 53 Hosted Zone** | 5.11 - Route 53 | DNS management |
 
-![EC2](/images/5-Workshop/5.2-Prerequisite/ec2.png)
+
+#### Cost Estimation
+
+For trial usage (< 1000 requests/month), estimated cost:
+
+| Service | Cost/month | Notes |
+|---------|-----------|-------|
+| AWS Lambda | ~$0.00 | Free tier: 1M requests |
+| DynamoDB | ~$0.00 | Free tier: 25GB |
+| S3 | ~$0.05 | Static + audio files |
+| API Gateway | ~$0.01 | ~1,000 requests |
+| CloudFront | $0.00 | Free tier |
+| AWS WAF – CloudFront | $0.00 | Included in 5 free rules with CloudFront Free plan |
+| AWS WAF – API Gateway | ~$10–15 | Regional Web ACL, not covered by any free tier |
+| Cognito | $0.00 | Free tier: 50,000 MAU |
+| SQS | ~$0.00 | Free tier: 1M requests |
+| Polly | ~$0.04 | ~100,000 characters |
+| CloudWatch | ~$1–5 | Logs + Alarms |
+| SNS | ~$0.00 | Free tier |
+| Route 53 | ~$0.50 | Hosted Zone $0.50/month |
+| ACM | $0.00 | Completely free |
+| **Total AWS** | **~$12–20/month** | |
+| **OpenAI API** | ~$1–$5 | Depends on evaluation volume |
+| **Total with OpenAI** | **~$13–25/month** | |
+
+**One-time cost:**
+- Domain `itcoach24h.xyz`: ~$2-3/year (if purchasing custom domain)
+
+
+#### Ready to Start
+
+After you have prepared everything, move to the next step to start creating IAM Role.
+

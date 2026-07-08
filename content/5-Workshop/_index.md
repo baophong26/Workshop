@@ -5,27 +5,38 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Building ITCoach Platform with AWS Serverless
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+**ITCoach** is an intelligent IT interview practice platform powered by AI, built entirely on AWS Serverless architecture. In this workshop, you will learn how to set up each component of the system from scratch using AWS Console.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
-
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+The system includes:
+- **Frontend**: React + TypeScript distributed via CloudFront and S3
+- **Backend**: 8 Lambda functions for business logic
+- **Database**: 8 DynamoDB tables for data storage
+- **Authentication**: Amazon Cognito for user management
+- **Security**: AWS WAF protecting CloudFront and API Gateway
+- **AI Integration**: OpenAI API and Amazon Polly
+- **Async Processing**: SQS for heavy task processing
+- **DNS & SSL**: Route 53 and ACM for domain and certificate management
+- **Monitoring**: CloudWatch and SNS
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Workshop Overview](5.1-Workshop-overview/)
+2. [Prerequisites](5.2-Prerequiste/)
+3. [Setting up IAM Role](5.3-iam-role/)
+4. [Creating S3 Buckets](5.4-s3-buckets/)
+5. [Creating DynamoDB Tables](5.5-dynamodb/)
+6. [Configuring Amazon Cognito](5.6-cognito/)
+7. [Setting up Amazon SQS](5.7-sqs/)
+8. [Creating Lambda Functions](5.8-lambda/)
+9. [Configuring API Gateway](5.9-api-gateway/)
+10. [Setting up AWS WAF](5.10-waf/)
+11. [Setting up CloudFront](5.11-cloudfront/)
+12. [Configuring Route 53 and SSL](5.12-route53-ssl/)
+13. [Monitoring with CloudWatch](5.13-monitoring/)
+14. [Deploy Code](5.14-deploy-code/)
+15. [Cleaning up Resources](5.15-cleanup/)

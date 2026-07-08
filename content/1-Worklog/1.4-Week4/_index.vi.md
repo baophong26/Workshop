@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-08
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 4:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu giải pháp cấp quyền bảo mật IAM Roles dành cho các tài nguyên AWS EC2.
+* Thực hành tạo lập, quản lý và sử dụng kho lưu trữ đối tượng Amazon S3 để phân phối Website tĩnh.
+* Cấu hình dịch vụ phân phối nội dung CDN Amazon CloudFront để tối ưu hóa hiệu năng, giảm độ trễ truy cập và tích hợp điện toán biên Lambda@Edge.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 5 | - Học về IAM Roles cho EC2; tạo Role có quyền đọc dữ liệu từ S3 và gán vào EC2 | 08/05/2026 | 08/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Kiểm thử gọi API S3 từ bên trong EC2 instance sử dụng quyền hạn của IAM Role | 09/05/2026 | 09/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 2 | - Tìm hiểu Amazon S3: khởi tạo Bucket, tải lên các file source HTML/CSS/JS tĩnh | 11/05/2026 | 11/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Bật tính năng Static website hosting trên S3, thiết lập Bucket Policy cho phép truy cập công khai | 12/05/2026 | 12/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tạo phân phối Amazon CloudFront CDN, trỏ Origin về S3 Bucket, thiết lập OAI/OAC để bảo mật | 13/05/2026 | 14/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| - | - Viết hàm Lambda@Edge đơn giản để sửa đổi Header HTTP phản hồi tại Edge Locations | 14/05/2026 | 14/05/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **IAM Roles for EC2:**
+  - Gán IAM Role cho EC2 instance thành công. Không cần lưu trữ cứng AWS Access Key/Secret Key trong code ứng dụng chạy trên máy chủ ảo, giúp tuân thủ tuyệt đối quy định bảo mật.
+* **Amazon S3 Static Website Hosting:**
+  - Tạo bucket S3, tải mã nguồn giao diện HTML tĩnh lên, bật tính năng hosting và truy cập website qua liên kết endpoint dạng: `http://<bucket-name>.s3-website-<region>.amazonaws.com`.
+* **Amazon CloudFront & Lambda@Edge:**
+  - Triển khai thành công phân phối CloudFront CDN.
+  - Sử dụng Origin Access Control (OAC) để giới hạn người dùng truy cập trực tiếp URL của S3 bucket, bắt buộc mọi lượt truy cập phải đi qua CloudFront.
+  - Tích hợp thành công Lambda@Edge để tùy biến header trả về của trình duyệt, nâng cao bảo mật hệ thống từ các trạm biên.

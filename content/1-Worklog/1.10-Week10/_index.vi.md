@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-19
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-
 ### Mục tiêu tuần 10:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thiết kế và phát triển giao diện Web (Next.js) và các API dịch vụ backend (Node.js/Express hoặc NestJS).
+* Triển khai hệ thống Authentication an toàn với JWT và phân quyền người dùng (User, Coach).
+* Tích hợp kết nối cơ sở dữ liệu Amazon RDS PostgreSQL và lưu trữ tệp tin trên Amazon S3 từ ứng dụng.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 5 | - Lập trình giao diện Frontend (Landing Page, bảng điều khiển tìm kiếm Coach) bằng Next.js và Tailwind CSS | 19/06/2026 | 19/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Xây dựng các RESTful API Backend: Đăng nhập/Đăng ký với mã hóa mật khẩu bcrypt, JWT Auth | 20/06/2026 | 20/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 2 | - Thiết lập kết nối từ Backend đến database RDS PostgreSQL (nằm trong Private Subnet) và chạy migration tạo bảng | 22/06/2026 | 22/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Xây dựng các API nghiệp vụ cốt lõi: Lấy danh sách Coach, lọc theo kỹ năng (skills), và đặt lịch hẹn | 23/06/2026 | 23/06/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tích hợp thư viện AWS SDK vào Backend để thực hiện upload ảnh đại diện và tài liệu chứng chỉ của Coach lên Amazon S3 | 24/06/2026 | 25/06/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 10:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Phát triển Web & API:**
+  - Hoàn thành giao diện Landing Page hiển thị danh sách Coach sinh động và các bộ lọc tìm kiếm theo chuyên môn.
+  - Xây dựng luồng Authentication hoàn chỉnh sử dụng JWT, phân quyền truy cập giữa học viên và Coach trên hệ thống.
+  - Thiết lập thành công các APIs CRUD danh sách Coach và tạo yêu cầu đặt lịch hẹn (Booking Session).
+* **Kết nối hạ tầng phần mềm:**
+  - Kết nối ứng dụng Backend với cơ sở dữ liệu quan hệ RDS PostgreSQL thông qua Prisma/TypeORM, cấu hình connection pool tối ưu.
+  - Tích hợp thành công chức năng upload file trực tiếp lên Amazon S3 thông qua SDK, sử dụng IAM Role (không cần lưu Access Key trong mã nguồn) để lưu trữ avatar người dùng và chứng chỉ kỹ năng của Coach.

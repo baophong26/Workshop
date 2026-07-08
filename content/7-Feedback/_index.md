@@ -6,42 +6,42 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 > Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
 
 ### Overall Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The internship environment at AWS Vietnam is dynamic, modern, and highly professional. Even though we operated primarily under a hybrid model (combining online and offline activities), I received a warm welcome and active support from the First Cloud AI Journey community members. Communication channels, learning resources, and developer tools were always fully provisioned and ready, allowing me to quickly adapt and maximize my work productivity.
 
 **2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+I highly appreciate the mentoring methodology. Instead of simply providing direct solutions to code bugs, the mentors guided my troubleshooting mindset, suggested relevant documentation, and encouraged me to perform self-research. The admin team was also extremely helpful with logistics and administrative processes, organizing periodic check-ins that were valuable for listening to and resolving concerns raised by interns.
 
 **3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+The assigned tasks during the internship, such as system architecture design, developing the Web IT Coach project, configuring VPC networking, and deploying cloud databases, align perfectly with my Software Engineering major. Applying computer networking and programming concepts to practical hands-on labs helped bridge the gap between classroom theory and industry practice.
 
 **4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+The internship provided me with exceptional learning opportunities. I not only improved my full-stack web programming skills (Next.js/Node.js) but also gained hands-on experience working directly with core cloud services (EC2, S3, RDS, ALB, ASG). In addition, I significantly enhanced essential soft skills such as time management, teamwork, and professional corporate communication.
 
 **5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+The culture of the First Cloud AI Journey program values respect, continuous learning, and embracing challenges. The team members actively supported each other through collaborative debugging sessions and code sharing. Despite being an intern, my suggestions were always heard and respected, making me feel like a true part of the team.
 
 **6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+The program provides clear and transparent policies for interns. Working hours were arranged flexibly, allowing me to easily maintain a balance between my university classes and my internship project responsibilities.
 
 ---
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+### Survey & Key Takeaways
+* **What did you find most satisfying during your internship?**  
+  * Being able to participate directly in building and deploying a real-world web application on AWS cloud infrastructure, converting classroom theories into a working production-grade product.
+* **What do you think the organizers should improve for future interns?**  
+  * I hope the organizers establish more in-person social events or team bonding activities to provide community members with deeper networking opportunities.
+* **If recommending to a friend, would you suggest they intern here? Why or why not?**  
+  * Definitely. This is an ideal environment for Software Engineering and Information Systems students looking to acquire cloud computing knowledge and practice application development in a real-world context.
 
 ---
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+### Suggestions & Future Expectations
+* **Suggestions to improve the internship experience:**  
+  * Introduce more advanced topics such as Microservices architecture or advanced cloud security guidelines in the periodic workshop schedule.
+* **Desire for future participation:**  
+  * I would love to continue participating in the AWS Study Group and First Cloud AI Journey community in the future as a contributor or mentor to support the next cohorts.

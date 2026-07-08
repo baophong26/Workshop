@@ -1,57 +1,32 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-15
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 5 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Learn and deploy relational database management systems on AWS using Amazon RDS.
+* Familiarize with high-performance, highly scalable NoSQL databases using Amazon DynamoDB.
+* Understand database query caching solutions using Amazon ElastiCache to optimize latency.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| Thu | - Explore Amazon RDS: DB Engines, Multi-AZ deployments, Read Replicas | 15/05/2026 | 15/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Launch RDS MySQL/PostgreSQL in a Private Subnet and test connection from EC2 | 16/05/2026 | 16/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Mon | - Study DynamoDB NoSQL: Tables, Partition Key, Sort Key | 18/05/2026 | 18/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Practice creating DynamoDB Table, loading items, Query and Scan | 19/05/2026 | 19/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Learn about Amazon ElastiCache: Launch a Redis/Memcached cluster | 20/05/2026 | 21/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| - | - Connect application on EC2 to ElastiCache for caching to reduce RDS workload | 21/05/2026 | 21/05/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Week 5 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* **Amazon RDS:**
+  - Configured and launched an RDS instance inside Private Subnets.
+  - Set up Security Groups to restrict access only to the EC2 security group.
+  - Learned about high availability with Multi-AZ deployments and read optimization using Read Replicas.
+* **Amazon DynamoDB:**
+  - Created a DynamoDB Table, understanding the performance differences between Query (efficient, targeted by keys) and Scan (scans entire table, resource-intensive).
+* **Amazon ElastiCache:**
+  - Deployed a Redis cluster. Understood the cache-aside pattern to reduce backend database workloads.
